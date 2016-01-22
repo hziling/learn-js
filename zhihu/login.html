@@ -3,33 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <title>知乎-与世界分享你的知识、经验和见解</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            font-size: 16px;
+        }
+        #content {
+            /*border: solid;*/
+            width: 300px;
+            height: 600px;
+            margin: 40px auto;
+        }
+        .center {
+            text-align: center;
+        }
+        h1 {
+            font-size: 70px;
+            color: #3c6abd;
+            padding: 40px 0;
+        }
+        h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        input {
+            padding: 13px;
+            width: 270px;
+        }
+        button {
+            padding: 10px;
+            width: 300px;
+            font-size: 20px;
+        }
+        .form-footer {
+            margin-top: 10px;
+        }
+        .form-footer label input{
+            width: 20px;
+            padding: 0;
+            float: left;
+        }
+        .form-footer span{
+            float: left;
+        }
+        .form-footer a {
+            float: right;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>知乎</h1>
-    <div>与世界分享你的知识、经验和见解</div>
+    <div id="content">
+        <h1 class="center">知乎</h1>
+        <h3 class="center">与世界分享你的知识、经验和见解</h3>
 
-    <span>注册</span>
-    <span>登录</span>
+        <div class="center login">
+            <h3>注册</h3>
+            <h3>登录</h3>
+        </div>
+        <div>
+            <form>
+                <div>
+                    <input type="text" placeholder="姓名">
+                </div>
 
-    <div>
-        <form>
-            <input type="text" placeholder="姓名">
-            <input type="text" placeholder="手机号 (仅支持中国大陆)">
-            <input type="text" placeholder="密码 (不少于6位)">
-            <input type="text" placeholder="验证码">
-            <button type="submit">注册知乎</button>
-        </form>
-    </div>
+                <div>
+                    <input type="text" placeholder="手机号 (仅支持中国大陆)">
+                </div>
 
-    <div>
-        <form>
-            <input type="text" placeholder="手机号或邮箱">
-            <input type="text" placeholder="密码 (不少于6位)">
-            <input type="text" placeholder="验证码">
-            <button type="submit">登录</button>
-            <input type="checkbox"><span>记住我</span>
-            <a href="#">无法登录?</a>
-        </form>
+                <div>
+                    <input type="text" placeholder="密码 (不少于6位)">
+                </div>
+
+                <div>
+                    <input type="text" placeholder="验证码">
+                </div>
+
+                <div>
+                    <button type="submit">注册知乎</button>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <form>
+                <div>
+                    <input type="text" placeholder="手机号或邮箱">
+                </div>
+
+                <div>
+                    <input type="text" placeholder="密码 (不少于6位)">
+                </div>
+
+                <div>
+                    <input type="text" placeholder="验证码">
+                </div>
+
+                <div>
+                    <button type="submit">登录</button>
+                </div>
+
+                <div class="form-footer">
+                    <label>
+                        <input type="checkbox" checked="checked">记住我
+                    </label>
+                    <a href="#">无法登录?</a>
+                </div>
+            </form>
+        </div>
     </div>
 
 </body>
