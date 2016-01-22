@@ -3,4 +3,4 @@
 
 HTML CSS JS
 
-<img src="zhihu.gif" >
+<img src="zhihu.gif" style="width: 400px;"/>
