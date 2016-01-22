@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Step1</title>
+    <style type="text/css">
+        * {margin: 0; padding: 0; font-size: 16px;}
+        #btn {
+            display: block;
+            margin: 10px auto;
+            padding:.5em 1em;
+        }
+        .dialog {
+            display: none;
+            border: solid 3px #aaa;
+            width: 40%;
+            height: 30%;
+            margin: auto;
+            position: fixed;
+            top:0;right:0;bottom:0;left:0;
+        }
+        .dialog .dialog-close {
+            float: right;
+            font-size: 1.5em;
+            font-weight: bolder;
+            cursor: pointer;
+        }
+        .dialog .dialog-title {
+            font-size: 1.2em;
+            padding: .5em 1em;
+            border-bottom: solid 1px #ddd;
+            background-color: #eee;
+        }
+        .dialog .dialog-content {
+            padding: 0.5em 1em;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">click me</button>
+
+    <div class="dialog">
+        <span class="dialog-close">&#215;</span>
+        <div class="dialog-title">title</div>
+        <div class="dialog-content">content</div>
+    </div>
+
+<script type="text/javascript" src="../static/jquery/jquery-1.12.0.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+                    $("#btn").on("click", function () {
+                        $(".dialog").show();
+                    });
+
+                    $(".dialog-close").on("click", function () {
+                        $(this).parent().hide();
+                    });
+                }
+        );
+    </script>
+</body>
+</html>

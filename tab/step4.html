@@ -2,12 +2,13 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Step2</title>
+    <title>Step5</title>
     <style>
         * {margin: 0; padding: 0; font-size: 16px;}
         .newtab {width: 30%; margin:40px auto; overflow: hidden;}
         .newtab .triggers {line-height: 2em; padding: 0 1em; border-bottom: solid 1px #ddd; float: left;}
         .newtab .triggers.active {border: solid 1px #ddd; border-bottom: none; border-radius: 5px 5px 0 0;}
+        .ui-tab-active{color:red;}
         .newtab .contents {clear: both; padding: 1em 0.5em; display: none;}
         .newtab .contents.active {display: block;}
     </style>
@@ -15,38 +16,49 @@
 <body>
 
 <div class="newtab">
-    <span class="triggers active">tab1</span>
+    <span class="triggers">tab1</span>
     <span class="triggers">tab2</span>
     <span class="triggers">tab3</span>
 
-    <div class="contents active">content1</div>
+    <div class="contents">content1</div>
     <div class="contents">content2</div>
     <div class="contents">content3</div>
 </div>
 
 <div class="newtab">
-    <span class="triggers active">tab1</span>
+    <span class="triggers">tab1</span>
     <span class="triggers">tab2</span>
     <span class="triggers">tab3</span>
 
-    <div class="contents active">content1</div>
+    <div class="contents">content1</div>
     <div class="contents">content2</div>
     <div class="contents">content3</div>
 </div>
 
-<script type="text/javascript" src="jquery-1.12.0.js"></script>
+<script type="text/javascript" src="../static/jquery/jquery-1.12.0.js"></script>
 <script>
     $(document).ready(function () {
         function tab(opt) {
-            $(opt.triggers, opt.element).on("click", function () {
-                $(this).addClass("active").siblings(".active").removeClass("active");
+            var activeIndex = opt.activeIndex || 0;
+            var activeTriggerClass = opt.activeTriggerClass || "ui-tab-active";
+            var triggerType = opt.triggerType || "click";
+
+            $(opt.element).each(function(){
+                $(this).children(opt.triggers).eq(activeIndex).addClass("active").addClass(activeTriggerClass);
+                $(this).children(opt.contents).eq(activeIndex).addClass("active");
+            });
+
+            $(opt.triggers, opt.element).on(triggerType, function () {
+                $(this).addClass(activeTriggerClass).addClass("active").siblings().removeClass("active").removeClass(activeTriggerClass);
 
                 $(this).parents(opt.element).find(opt.contents).removeClass("active").eq($(this).index()).addClass("active");
+
             });
         }
 
         tab({
             element: '.newtab',
+            triggerType: 'mouseover',
             triggers: '.triggers',
             contents: '.contents'
         });
