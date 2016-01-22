@@ -64,17 +64,25 @@
         function dialog(opt) {
             $(opt.trigger).on("click", function () {
                 $(".dialog-content").html(opt.content);
-                $(".dialog").fadeIn();
+                opt.effectShow($(".dialog"));
             });
 
             $(".dialog-close").on("click", function () {
-                $(this).parent().fadeOut();
+                opt.effectHide($(this).parent());
             });
         }
 
         dialog({
             trigger: '#btn',
-            content: '<strong>哈哈</strong>'
+            content: '<strong>哈哈</strong>',
+            effectShow: function ($element) {
+                // 淡入显示
+                $element.fadeIn(500)
+            },
+            effectHide: function ($element) {
+                // 淡出显示
+                $element.fadeOut(500)
+            }
         })
     });
 </script>
