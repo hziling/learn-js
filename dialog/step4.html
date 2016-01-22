@@ -18,7 +18,7 @@
 
         .dialog {
             display: none;
-            border: solid 3px #aaa;
+            border: solid 5px #aaa;
             width: 500px;
             height: 300px;
             margin: auto;
@@ -53,7 +53,7 @@
 
 <div class="dialog">
     <span class="dialog-close">&#215;</span>
-    <div class="dialog-title">title</div>
+    <div class="dialog-title">我是标题</div>
     <div class="dialog-content">content</div>
 </div>
 
@@ -81,7 +81,7 @@
 
         dialog({
             trigger: '#btn',
-            content: '<strong>哈哈</strong>',
+            content: '<strong>我是内容</strong>',
             effectShow: function ($element) {
                 // 淡入显示
                 $element.fadeIn(500)
