@@ -7,7 +7,7 @@
         * {margin: 0; padding: 0; font-size: 16px;}
         .newtab {width: 30%; margin:40px auto; overflow: hidden;}
         .newtab .triggers {line-height: 2em; padding: 0 1em; border-bottom: solid 1px #ddd; float: left;}
-        .newtab .triggers.active {border: solid 1px #ddd; border-bottom: none; border-radius: 5px 5px 0 0;}
+        .newtab .triggers.ui-tab-active {border: solid 1px #ddd; border-bottom: none; border-radius: 5px 5px 0 0; color: red;}
         .newtab .contents {clear: both; padding: 1em 0.5em; display: none;}
         .newtab .contents.active {display: block;}
     </style>
@@ -41,12 +41,12 @@
             var activeIndex = opt.activeIndex || 0;
 
             $(opt.element).each(function(){
-                $(this).children(opt.triggers).eq(activeIndex).addClass("active");
+                $(this).children(opt.triggers).eq(activeIndex).addClass(opt.activeTriggerClass);
                 $(this).children(opt.contents).eq(activeIndex).addClass("active");
             });
 
             $(opt.triggers, opt.element).on("click", function () {
-                $(this).addClass("active").siblings(".active").removeClass("active");
+                $(this).addClass(opt.activeTriggerClass).siblings().removeClass(opt.activeTriggerClass);
 
                 $(this).parents(opt.element).find(opt.contents).removeClass("active").eq($(this).index()).addClass("active");
             });
@@ -56,8 +56,7 @@
             element: '.newtab',
             triggers: '.triggers',
             contents: '.contents',
-            // 显示第二个 content
-            activeIndex: 1
+            activeTriggerClass: 'ui-tab-active'
         });
     });
 
