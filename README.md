@@ -1,6 +1,6 @@
 # Tab 选项卡
 
-<img src="tab.png" >
+<img src="tab5.gif" >
 
 ## 阶段 1
 

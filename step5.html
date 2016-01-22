@@ -6,7 +6,7 @@
     <style>
         * {margin: 0; padding: 0; font-size: 16px;}
         .newtab {width: 30%; margin:40px auto; overflow: hidden;}
-        .newtab .triggers {line-height: 2em; padding: 0 1em; border-bottom: solid 1px #ddd; float: left;}
+        .newtab .triggers {line-height: 2em; padding: 0 1em; border-bottom: solid 1px #ddd; float: left; cursor: pointer;}
         .newtab .triggers.active {border: solid 1px #ddd; border-bottom: none; border-radius: 5px 5px 0 0;}
         .ui-tab-active{color:red;}
         .newtab .contents {clear: both; padding: 1em 0.5em; display: none;}
@@ -49,10 +49,14 @@
             });
 
             $(opt.triggers, opt.element).on(triggerType, function () {
+                var $index = $(this).index();
+                var $count = $(this).parent().children(opt.triggers).length;
+
                 $(this).addClass(activeTriggerClass).addClass("active").siblings().removeClass("active").removeClass(activeTriggerClass);
 
-                $(this).parents(opt.element).find(opt.contents).removeClass("active").eq($(this).index()).addClass("active");
+                $(this).parents(opt.element).find(opt.contents).removeClass("active").eq($index).addClass("active");
 
+                opt.onSwitch($index, $count);
             });
         }
 
@@ -60,7 +64,15 @@
             element: '.newtab',
             triggerType: 'mouseover',
             triggers: '.triggers',
-            contents: '.contents'
+            contents: '.contents',
+            // click 或 mouseover trigger 时 onSwitch 会执行
+            onSwitch: function (index, count) {
+                /*
+                 index 是当前 trigger 的索引
+                 count 是 trigger 的总数
+                 */
+                console.log(index, count);
+            }
         });
     });
 
