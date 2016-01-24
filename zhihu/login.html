@@ -10,7 +10,7 @@
             font-size: 16px;
             color: #888;
         }
-        .content {
+        .zh-container {
             width: 300px;
             height: 600px;
             margin: 200px auto;
@@ -27,18 +27,18 @@
             display: inline-block;
             text-align: center;
         }
-        .tab-nav {
+        .zh-tab-nav {
             text-align: center;
         }
-        .tab-nav h3 {
+        .zh-tab-nav h3 {
             margin: 20px;
             padding-bottom: 5px;
             cursor: pointer;
         }
-        .tab-nav .active {
+        .zh-tab-nav .active {
             color: #3291d9;
         }
-        .tab-nav .slider-bar{
+        .zh-tab-nav .zh-slider-bar {
             width: 40px;
             height: 5px;
             border-bottom: solid 3px #3291d9;
@@ -46,11 +46,11 @@
             left: 87px;
             bottom: 25px;
         }
-        .form input {
+        .zh-form input {
             padding: 13px;
             width: 270px;
         }
-        .form button {
+        .zh-form button {
             padding: 10px;
             width: 300px;
             font-size: 20px;
@@ -61,53 +61,53 @@
             margin-top: 20px;
             cursor: pointer;
         }
-        .form-footer {
+        .zh-form-footer {
             margin-top: 20px;
         }
-        .form-footer label input{
+        .zh-form-footer label input{
             width: 20px;
             padding: 0;
             float: left;
         }
-        .form-footer span{
+        .zh-form-footer span{
             float: left;
         }
-        .form-footer a {
+        .zh-form-footer a {
             float: right;
             text-decoration: none;
         }
-        .form p {
+        .zh-form p {
             margin-top: 20px;
         }
 
     </style>
 </head>
 <body>
-    <div class="content">
+    <div class="zh-container">
         <h1>知乎</h1>
         <h3>与世界分享你的知识、经验和见解</h3>
 
-        <div class="tab-nav">
+        <div class="zh-tab-nav">
             <h3 class="active">注册</h3>
             <h3>登录</h3>
-            <div class="slider-bar"></div>
+            <div class="zh-slider-bar"></div>
         </div>
 
-        <div class="form">
+        <div class="zh-form">
             <form name="register" method="post" target="#">
-                <div class="input-wrapper">
+                <div class="zh-input-wrapper">
                     <input type="text" placeholder="姓名" required>
                 </div>
 
-                <div class="input-wrapper">
+                <div class="zh-input-wrapper">
                     <input type="text" placeholder="手机号 (仅支持中国大陆)" required>
                 </div>
 
-                <div class="input-wrapper">
+                <div class="zh-input-wrapper">
                     <input type="text" placeholder="密码 (不少于6位)" required>
                 </div>
 
-                <div class="input-wrapper">
+                <div class="zh-input-wrapper">
                     <input type="text" placeholder="验证码" required>
                 </div>
 
@@ -118,25 +118,25 @@
             </form>
         </div>
 
-        <div class="form" style="display: none">
+        <div class="zh-form" style="display: none">
             <form name="login" method="post" target="#">
-                <div class="input-wrapper">
+                <div class="zh-input-wrapper">
                     <input type="text" placeholder="手机号或邮箱" required>
                 </div>
 
-                <div class="input-wrapper">
+                <div class="zh-input-wrapper">
                     <input type="text" placeholder="密码 (不少于6位)" required>
                 </div>
 
-                <div class="input-wrapper">
+                <div class="zh-input-wrapper">
                     <input type="text" placeholder="验证码" required>
                 </div>
 
-                <div class="input-wrapper">
+                <div class="zh-input-wrapper">
                     <button type="submit">登录</button>
                 </div>
 
-                <div class="form-footer">
+                <div class="zh-form-footer">
                     <label>
                         <input type="checkbox" checked="checked">记住我
                     </label>
@@ -149,14 +149,14 @@
 <script type="text/javascript" src="../static/jquery/jquery-1.12.0.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        $(".tab-nav h3").click(function(){
+        $(".zh-tab-nav h3").click(function(){
             var $index = $(this).index();
             var $animate = [{left: "87px"}, {left: "170px"}][$index];
 
             $(this).addClass("active").siblings(".active").removeClass("active");
-            $(".form").hide().eq($index).show();
+            $(".zh-form").hide().eq($index).show();
 
-            $(".slider-bar").animate($animate, "fast");
+            $(".zh-slider-bar").animate($animate, "fast");
         });
     });
 </script>
